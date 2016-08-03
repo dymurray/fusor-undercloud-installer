@@ -65,6 +65,9 @@ fusor_undercloud_install() {
     echo
   fi
 
+  # Ensure SELinux is set to enforcing
+  setenforce 1
+
   # create stack user, become her
   id -u stack >/dev/null 2>&1
   if [ $? -ne 0 ]; then
